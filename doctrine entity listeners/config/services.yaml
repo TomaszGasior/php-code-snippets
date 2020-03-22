@@ -1,0 +1,4 @@
+services:
+    App\Doctrine\EntityListener\:
+        resource: '../src/Doctrine/EntityListener'
+        tags: [{ name: 'doctrine.orm.entity_listener', lazy: true }]

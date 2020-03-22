@@ -1,0 +1,4 @@
+services:
+    App\EventSubscriber\MaintenanceModeSubscriber:
+        arguments:
+            $lockFilePath: '%kernel.project_dir%/var/lock/maintenance.lock'

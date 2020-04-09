@@ -20,7 +20,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
  * ```
  * Example usage with custom query builder:
  * ```
- * $
  * return $this->render('user/list.html.twig', [
  *     'users' => $helper->list($userRepository, $userRepository->getQueryBuilderForAdminType()),
  * ]);

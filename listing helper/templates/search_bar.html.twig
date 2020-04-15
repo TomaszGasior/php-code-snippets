@@ -1,0 +1,13 @@
+<form method="get">
+    <label for="search-bar-input" class="sr-only">
+        {{ 'Enter search term'|trans }}
+    </label>
+
+    {# Keep input "name" in sync with ListingHelper class. #}
+    <input name="s" type="search" id="search-bar-input"
+           value="{{ app.request.query.get('s') }}"
+           placeholder="{{ 'Search…'|trans }}"
+           class="form-control search-bar">
+
+    <button class="sr-only">{{ 'Search'|trans }}</button>
+</form>

@@ -3,6 +3,7 @@
 namespace App\Doctrine\EntityListener;
 
 use Doctrine\Common\EventArgs;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\OnClearEventArgs;
 use Doctrine\ORM\Event\OnFlushEventArgs;
@@ -21,7 +22,11 @@ trait EntityListenerTrait
      */
     private function forceEntityUpdate(object $entity, EventArgs $args): void
     {
-        $entityManager = $args->getEntityManager();
+        $entityManager = $args->getObjectManager();
+
+        if (!$entityManager instanceof EntityManagerInterface) {
+            return;
+        }
 
         // Don't try to enforce update if entity is not managed by Doctrine
         // (this happens when associated entity was removed right now).

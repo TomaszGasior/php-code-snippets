@@ -13,7 +13,7 @@ trait DefaultOrderByTrait
      * Returns array with default order by definition. Format is compatible
      * with findBy() method. Must be implemented by importing repository.
      */
-    abstract protected function getDefaultOrderBy(): array;
+    abstract private function getDefaultOrderBy(): array;
 
     /**
      * @see \Doctrine\ORM\EntityRepository::createQueryBuilder
@@ -32,7 +32,7 @@ trait DefaultOrderByTrait
     /**
      * @see \Doctrine\ORM\EntityRepository::findBy
      */
-    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null): array
+    public function findBy(array $criteria, ?array $orderBy = null, $limit = null, $offset = null): array
     {
         $orderBy = $orderBy ?: $this->getDefaultOrderBy();
 

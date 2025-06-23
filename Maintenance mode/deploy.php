@@ -2,10 +2,14 @@
 
 namespace Deployer;
 
-set('shared_dirs', ['var/log', 'var/sessions', 'var/lock']);
+set('shared_dirs', ['var/lock']);
 
 desc('Enable maintenance mode');
-task('maintenance:enable', 'touch var/lock/maintenance.lock');
+task('maintenance:enable', function() {
+    run('touch {{current_path}}/var/lock/maintenance.lock');
+});
 
 desc('Disable maintenance mode');
-task('maintenance:disable', 'rm -f var/lock/maintenance.lock');
+task('maintenance:disable', function() {
+    run('rm -f {{current_path}}/var/lock/maintenance.lock');
+});

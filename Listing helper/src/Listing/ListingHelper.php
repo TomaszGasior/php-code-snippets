@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 /**
  * Listing helper wraps pagination and searching functionality for entity
  * repositories and query builders. It's intented to be used in controllers.
- * For pagination KnpPaginatorBundle is used under the hood.
+ * KnpPaginatorBundle is used under the hood for pagination.
  *
  * Example usage:
  * ```
@@ -76,7 +76,7 @@ class ListingHelper
 
             if (!($repository instanceof SearchableRepositoryInterface)) {
                 throw new \InvalidArgumentException(
-                    sprintf('Search is enabled for not searchable %s repository.', get_class($repository))
+                    sprintf('Search is enabled for non-searchable %s repository.', get_class($repository))
                 );
             }
 

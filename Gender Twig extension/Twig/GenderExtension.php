@@ -23,11 +23,11 @@ use Twig\TwigTest;
  * ```
  * {{ 'Anna ' ~ text_gender('Anna', 'is a man', 'is a woman', 'fallback') }}
  * ```
- * Fallback text is optional, man text will be used instead.
+ * Fallback text is optional, man text will be used if fallback is missing.
  */
 class GenderExtension extends AbstractExtension
 {
-    private $detector;
+    private ?GenderDetector $detector = null;
 
     public function getTests(): array
     {
@@ -45,7 +45,7 @@ class GenderExtension extends AbstractExtension
     }
 
     public function getTextForGender($name, string $textMan, string $textWoman,
-                                     string $textFallback = null): string
+                                     ?string $textFallback = null): string
     {
         if (null === $textFallback) {
             $textFallback = $textMan;
@@ -63,24 +63,20 @@ class GenderExtension extends AbstractExtension
 
     public function isWomanName($name): bool
     {
-        return $this->isExpectedGender($name, Gender::FEMALE);
+        return $this->isExpectedGender($name, Gender::Female);
     }
 
     public function isManName($name): bool
     {
-        return $this->isExpectedGender($name, Gender::MALE);
+        return $this->isExpectedGender($name, Gender::Male);
     }
 
-    private function isExpectedGender(string $name, string $expectedGender): bool
+    private function isExpectedGender(string $name, Gender $expectedGender): bool
     {
-        if (false === is_string($name)) {
-            return false;
-        }
-
         if (null === $this->detector) {
             $this->detector = new GenderDetector;
         }
 
-        return $this->detector->detect($name) === $expectedGender;
+        return $this->detector->getGender($name) === $expectedGender;
     }
 }

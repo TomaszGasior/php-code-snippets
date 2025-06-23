@@ -1,0 +1,7 @@
+framework:
+    request:
+        formats:
+            csv: text/csv
+            ods: application/vnd.oasis.opendocument.spreadsheet
+            xls: application/vnd.ms-excel
+            xlsx: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet

@@ -1,0 +1,4 @@
+doctrine:
+    dbal:
+        types:
+            mariadb_uuid: App\Doctrine\Type\MariadbUuidType

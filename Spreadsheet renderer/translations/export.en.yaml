@@ -1,0 +1,4 @@
+heading:
+    id: 'Product ID'
+    name: 'Product name'
+    price: 'Product price'

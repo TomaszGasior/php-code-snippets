@@ -9,7 +9,7 @@ use Twig\TwigFunction;
 use Twig\TwigTest;
 
 /**
- * Provides integration with tuqqu/gender-detector for Twig templates.
+ * Provides integration with `tuqqu/gender-detector` for Twig templates.
  *
  * Use these tests to detect gender of first name:
  * ```

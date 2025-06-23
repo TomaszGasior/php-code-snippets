@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 use Twig\Environment;
 
 /**
- * Renders PDF document from Twig template using KnpSnappyBundle.
+ * Renders PDF document from Twig template using `knplabs/knp-snappy-bundle`.
  */
 class PdfExportService
 {

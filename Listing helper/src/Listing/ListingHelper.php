@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\RequestStack;
 /**
  * Listing helper wraps pagination and searching functionality for entity
  * repositories and query builders. It's intented to be used in controllers.
- * KnpPaginatorBundle is used under the hood for pagination.
+ * `knplabs/knp-paginator-bundle` is used under the hood for pagination.
  *
  * Example usage:
  * ```

@@ -1,0 +1,22 @@
+{
+    "type": "project",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": "8.4.*",
+        "symfony/config": "6.4.*",
+        "symfony/console": "6.4.*",
+        "symfony/lock": "6.4.*",
+        "symfony/var-dumper": "6.4.*",
+        "symfony/yaml": "6.4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "."
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}

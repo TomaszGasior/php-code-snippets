@@ -1,0 +1,9 @@
+{
+    "main": "app.php",
+    "output": "app.phar",
+    "git-commit-short": "git_commit_short",
+    "blacklist": [
+        "box.phar",
+        "config.yaml"
+    ]
+}
